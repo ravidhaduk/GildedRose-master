@@ -15,4 +15,10 @@
     <ProjectReference Include="..\GildedRose.Console\GildedRose.Console.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestData\Items.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
