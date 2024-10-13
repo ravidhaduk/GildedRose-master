@@ -1,6 +1,9 @@
 ﻿using GildedRose.Console.Models;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
+using System.Reflection;
 using System.Text.Json;
 
 namespace GildedRose.Console
@@ -11,13 +14,12 @@ namespace GildedRose.Console
         static void Main(string[] args)
         {
             string filePath = "Items.json";
-            System.Console.WriteLine("Current Directory: " + Directory.GetCurrentDirectory());
 
+            //Load items from JSON
             IList<Item> Items = LoadItems(filePath);
 
             var app = new Actions.GildedRose(Items);
             app.UpdateQuality();
-        
         }
 
         private static IList<Item> LoadItems(string filePath)

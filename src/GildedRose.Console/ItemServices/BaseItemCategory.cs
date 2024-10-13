@@ -1,9 +1,5 @@
 ﻿using GildedRose.Console.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 
 namespace GildedRose.Console.ItemServices
 {
@@ -28,7 +24,12 @@ namespace GildedRose.Console.ItemServices
 
         protected void IncreaseQuality(int amount = 1)
         {
-            if (item.Quality < 50)
+            var highestQuality = int.Parse(ConfigurationManager.AppSettings["HighestQuality"]);
+
+            if (item.Quality + amount > highestQuality)
+            {
+                item.Quality = highestQuality;
+            } else
             {
                 item.Quality += amount;
             }
